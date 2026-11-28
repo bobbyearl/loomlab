@@ -1,6 +1,6 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { BraceletArt } from '../components/BraceletArt'
-import { products } from '../data/products'
+import { getPreset } from '../data/presets'
 
 export const Route = createFileRoute('/')({ component: Home })
 
@@ -8,19 +8,19 @@ const themeCards = [
   {
     title: 'Sports',
     text: 'Team colors and game day favorites.',
-    colors: ['#1d4ed8', '#f97316'],
+    colors: ['#2563eb', '#f97316'],
     link: { to: '/shop', search: { theme: 'sports' } },
   },
   {
     title: 'Holidays',
     text: 'Christmas, Thanksgiving, and more.',
-    colors: ['#dc2626', '#16a34a'],
+    colors: ['#dc2626', '#166534'],
     link: { to: '/shop', search: { theme: 'holidays' } },
   },
   {
     title: 'Customized',
     text: 'Pick your colors and your length.',
-    colors: ['#dc2626', '#fb923c', '#eab308', '#22c55e', '#2563eb', '#7c3aed'],
+    colors: ['#dc2626', '#f97316', '#facc15', '#22c55e', '#2563eb', '#7c3aed'],
     link: { to: '/custom' },
   },
 ] as const
@@ -68,7 +68,7 @@ function Home() {
             </div>
           </div>
           <div className="flex justify-center">
-            <BraceletArt colors={products[1].colors} size={360} />
+            <BraceletArt colors={getPreset('sunset-glow')!.colors} size={360} />
           </div>
         </div>
       </section>

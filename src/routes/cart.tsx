@@ -2,7 +2,7 @@ import { Link, createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import { useCart } from '../components/cart'
 import { BraceletArt } from '../components/BraceletArt'
-import { formatPrice } from '../data/products'
+import { formatPrice } from '../lib/format'
 import { CONTACT_EMAIL } from '../config'
 import { orderNote, venmoUrl, wasTruncated } from '../lib/venmo'
 
@@ -35,14 +35,13 @@ function Cart() {
         {items.map((item) => (
           <li key={item.key} className="flex items-center gap-6 py-6">
             <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl bg-sand">
-              <BraceletArt colors={item.colors} size={80} clip={item.clip} />
+              <BraceletArt colors={item.colors} size={80} />
             </div>
             <div className="flex-1">
               <p className="font-medium">{item.name}</p>
               <p className="text-sm text-stone-600">
                 {formatPrice(item.price)}
                 {item.length ? ` · ${item.length}` : ''}
-                {` · ${item.clip} clip`}
               </p>
               {item.notes ? (
                 <p className="text-sm text-stone-500">Note: {item.notes}</p>

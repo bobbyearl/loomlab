@@ -8,7 +8,6 @@ export type CartItem = {
   name: string
   price: number
   colors: Array<string>
-  clip: 'black' | 'clear'
   length?: string
   notes?: string
   quantity: number
