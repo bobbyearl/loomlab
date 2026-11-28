@@ -5,11 +5,9 @@ import type { CartItem } from '../components/cart'
 const MAX_NOTE_LENGTH = 250
 
 function describe(item: CartItem) {
-  const isCustom = item.key.startsWith('custom-')
   const details = [
-    isCustom ? item.colors.map(colorName).join('/') : null,
+    item.colors.map(colorName).join('/'),
     item.length,
-    `${item.clip} clip`,
     item.notes,
   ].filter(Boolean)
   return `${item.quantity}x ${item.name} (${details.join(', ')})`

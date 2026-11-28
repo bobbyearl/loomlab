@@ -3,11 +3,9 @@
 export function BraceletArt({
   colors,
   size = 240,
-  clip = 'black',
 }: {
   colors: ReadonlyArray<string>
   size?: number
-  clip?: 'black' | 'clear'
 }) {
   const count = 14
   const radius = 35
@@ -50,27 +48,18 @@ export function BraceletArt({
           </g>
         ),
       )}
-      <CClip x={50} y={50 - radius} clip={clip} />
+      <CClip x={50} y={50 - radius} />
     </svg>
   )
 }
 
 // A plastic "C" clip. It takes the place of one loop in the chain, turned so
 // its opening faces outward and the two neighboring loops are held inside it.
-function CClip({
-  x,
-  y,
-  clip,
-}: {
-  x: number
-  y: number
-  clip: 'black' | 'clear'
-}) {
+function CClip({ x, y }: { x: number; y: number }) {
   const d =
     'M -3 -3.4 L -5.2 -3.4 Q -7 -3.4 -7 -1.4 L -7 1.4 Q -7 3.4 -5.2 3.4 L 5.2 3.4 Q 7 3.4 7 1.4 L 7 -1.4 Q 7 -3.4 5.2 -3.4 L 3 -3.4'
-  const color = clip === 'black' ? '#18181b' : 'rgba(186,230,253,0.85)'
-  const edge =
-    clip === 'black' ? 'rgba(255,255,255,0.35)' : 'rgba(71,85,105,0.7)'
+  const color = '#18181b'
+  const edge = 'rgba(255,255,255,0.35)'
   return (
     <g transform={`translate(${x} ${y})`}>
       <path

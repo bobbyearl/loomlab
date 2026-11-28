@@ -1,6 +1,6 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { BraceletArt } from '../components/BraceletArt'
-import { products } from '../data/products'
+import { getPreset } from '../data/presets'
 
 export const Route = createFileRoute('/about')({ component: About })
 
@@ -9,7 +9,7 @@ function About() {
     <div className="container-page max-w-3xl pt-16">
       <h1 className="font-display text-4xl tracking-tight">Our story</h1>
       <div className="my-10 flex justify-center rounded-2xl bg-sand py-10">
-        <BraceletArt colors={products[0].colors} size={220} />
+        <BraceletArt colors={getPreset('ocean-wave')!.colors} size={220} />
       </div>
       <div className="space-y-5 text-lg leading-relaxed text-stone-700">
         <p>
